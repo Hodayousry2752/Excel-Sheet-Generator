@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bitter:wght@500&family=Poppins:wght@100;200;400;600&family=Rajdhani:wght@300&family=Roboto:wght@100;300;400&display=swap');
+body{
+    background-color: #f7f7f7;
+    font-family: 'Bitter',serif;
+
+}
+h3{
+    font-size: 32px;
+}
+.form-div{
+    width: 35%;
+}
+.inpt{
+    border: 2px solid rgb(207, 207, 207);
+    display: block;
+    width: 100%;
+    padding: 5px 3px;
+    background-color: inherit;
+    outline: none;
+
+}
+.btun-form{
+    padding: 6px 25px;
+    font-weight: 300;
+    
+}
+.btun-G{
+    background-color: #5AFF15;
+    border: 2px solid #21212142;
+}
+.btun-E{
+    background-color: #F3A712;
+    border: 2px solid #21212142;
+}
+table{
+    border-collapse: separate;
+    border-spacing: 10px;
+    *border-collapse: expression('separate', cellSpacing='10px');
+  }
+table tbody tr td{
+    border: solid 2px #21212142;
+    margin: 5px 5px 5px 5px;
+    min-width: 100px;
+    max-width: 100px;
+    height: 40px;
+    border-collapse: separate;
+    outline: none;
+
+}
