@@ -47,3 +47,9 @@ table tbody tr td{
     outline: none;
 
 }
+@media screen and (max-width:992px){
+
+    .form-div{
+    min-width: 50%;
+}
+}
