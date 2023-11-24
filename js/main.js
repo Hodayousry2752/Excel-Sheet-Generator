@@ -4,9 +4,17 @@ let numOfColumns =document.querySelector('#columns');
 let table =document.querySelector('#table');
 let generate =document.querySelector('#generate');
 let exprt =document.querySelector('#export');
+let bushTable;
 
 function getTableSheet(){
-    let bushTable ='<tbody>';
+    if (rows.value==''&&columns.value=='') {
+        Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Fields cannot be empty!'
+        });
+    } else {
+    bushTable ='<tbody>';
 
     for(let i=0;i<numOfRows.value;i++){
         bushTable+='<tr>';
@@ -22,15 +30,25 @@ function getTableSheet(){
 generate.addEventListener('click',getTableSheet);
 
 function downloadTableAsExcel() {
-    let html = table.outerHTML;
+    if(bushTable !==''){
+        let html = table.outerHTML;
     
-    let blob = new Blob([html], { type: 'application/vnd.ms-excel' });
-    let url = URL.createObjectURL(blob);
+        let blob = new Blob([html], { type: 'application/vnd.ms-excel' });
+        let url = URL.createObjectURL(blob);
+        
+        let a = document.createElement('a');
+        a.href = url;
+        a.download = 'My newSheet.xls';
+        a.click();
+    }else{
+        Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'No table to export!'
+        });
+        
+    }
     
-    let a = document.createElement('a');
-    a.href = url;
-    a.download = 'My newSheet.xls';
-    a.click();
-  }
+  };
   exprt.addEventListener('click',downloadTableAsExcel);
 
