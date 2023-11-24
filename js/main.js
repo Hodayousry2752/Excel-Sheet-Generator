@@ -7,7 +7,7 @@ let exprt =document.querySelector('#export');
 let bushTable;
 
 function getTableSheet(){
-    if (rows.value==''&&columns.value=='') {
+    if (numOfRows.value==''&&numOfColumns.value=='') {
         Swal.fire({
         icon: 'error',
         title: 'Oops...',
@@ -25,7 +25,7 @@ function getTableSheet(){
     }
     bushTable+='</tbody>'
     table.innerHTML=bushTable;
-}
+}}
 
 generate.addEventListener('click',getTableSheet);
 
