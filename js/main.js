@@ -30,7 +30,7 @@ function getTableSheet(){
 generate.addEventListener('click',getTableSheet);
 
 function downloadTableAsExcel() {
-    if(bushTable !==''){
+    if(bushTable !=''){
         let html = table.outerHTML;
     
         let blob = new Blob([html], { type: 'application/vnd.ms-excel' });
