@@ -4,6 +4,7 @@ let numOfColumns =document.querySelector('#columns');
 let table =document.querySelector('#table');
 let generate =document.querySelector('#generate');
 let exprt =document.querySelector('#export');
+let tableVa;
 let bushTable;
 
 function getTableSheet(){
@@ -13,6 +14,7 @@ function getTableSheet(){
         title: 'Oops...',
         text: 'Fields cannot be empty!'
         });
+        tableVa=false;
     } else {
     bushTable ='<tbody>';
 
@@ -25,12 +27,13 @@ function getTableSheet(){
     }
     bushTable+='</tbody>'
     table.innerHTML=bushTable;
-}}
-
+    tableVa=true;
+    }
+}
 generate.addEventListener('click',getTableSheet);
 
 function downloadTableAsExcel() {
-    if(bushTable !=''){
+    if(tableVa==true){
         let html = table.outerHTML;
     
         let blob = new Blob([html], { type: 'application/vnd.ms-excel' });
@@ -42,13 +45,12 @@ function downloadTableAsExcel() {
         a.click();
     }else{
         Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'No table to export!'
-        });
-        
+            icon: 'error',
+            title: 'Oops...',
+            text: 'No table to export!'
+            });  
     }
-    
   };
   exprt.addEventListener('click',downloadTableAsExcel);
+
 
